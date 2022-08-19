@@ -82,7 +82,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->update($request->all());
+
+        return response()->json([
+            'status' => true,
+            'message' => "Post Updated successfully!",
+            'post' => $post
+        ], 200);
     }
 
     /**
